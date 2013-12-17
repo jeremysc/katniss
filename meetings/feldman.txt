@@ -1,0 +1,75 @@
+unsupervised relation extraction
+
+find, read, understand, consolidate, absorb/act
+
+focus: key events, relations between entities, sentiment about entities
+
+fully automate rule building: speed, completeness, quality
+
+unsupervised care2.0, corpus based learning
+generic grammar augmented ie, care 2.0
+hybrid, care1.0
+supervised IE hmm, crf
+rule based IE : dial
+
+supervised (HMM vs CRF - local vs global opt), rule-based: lots of human labeling
+upenn, some corpus of labeled docs
+
+openie: banko 2008, totally unsupervised
+
+shallow vs. deep parsing (slower, but higher qual)
+- their parser is worse at general purpose parsing (vs. cherniak etc.), but better in specific domains
+parser -> hpsg, integrates well with NER and POS taggers
+- parser from Sag 2003, lingo project
+generate single highest weight-parse
+worse at parsing general sentences, but better for learning relations within that specific domain
+goal: get set of docs for a paritcular domain, then try to learn typical constructs in the domain...totally different grammars from domain-to-domain
+
+parser extends klein and manning 2001 agenda-based parser for pcfg-s
+
+premise is to learn from simple examples, from which relation-related words are weighted heavier, leading to correct parses in the complex case
+
+relation examples:
+PersonX has SideEffectY
+CompanyX enters into agreement with CompanyY
+
+relations give information about context - gives advantages over lexicon-centric parsing or just relying on NER results
+
+generic grammar - around thirty rules, lexicon def'ns for several hundred words
+
+
+FLOW: build a grammar in a month
+1) parse unlabeled corpus using generic grammar
+2) convert frequent patterns into lexical entries, then re-parse using "complete", domain-specific grammar
+3) relations extracted are filtered, compared and merged to get rid of redundancy
+4) names given to relation types
+
+precision harder than recall
+
+textrunner - UW
+
+
+system: visual care
+0.01% development time for IE system
+
+
+entity extraction: user feedback required
+- trained NER model (CRF)
+- manual rules or lexicon definitions
+- ex: normalization of references to drugs: Byetta, Pill of byetta, Dose of byetta
+
+- relation clustering: HAC and wordnet
+
+
+coreference res: relations across many sentences
+- lee, 2011 coNLL
+
+use cases:
+- sentiment analysis of stocks from news sites
+  - stock sonar
+    - crawling: learn relevant/irrelevant nodes in dom tree
+
+use beta for strategy
+use sentiment signal with technical/fundamental analysis
+
+drug relations, side effects and shared side effects 

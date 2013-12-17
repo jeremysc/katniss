@@ -1,0 +1,31 @@
+Trying to improve the unsupervised clustering on sketch vs. diabetes papers.
+- X is a set of vectors, one for each document.
+  - Each vector is a set of word frequencies for the union of the N most frequent words from each document
+  - E.g. if N=1, and diabetes is the top word in all of 3 documents, then each vector is one element: [freq('diabetes')]
+  - If N=1 and each of 3 documents has a different top word, then vector = [freq(w1), freq(w2), freq(w3)]
+
+- Y a list of pairwise distances - above the diagonal
+
+We found that cosine distances work best when dealing only with word frequencies
+  - Diabetes documents (D) tend to overlap in their top 5 words only on 'diabetes'
+  - Sketch documents (S) don't overlap with diabetes documents at all
+  - If using euclidean distance, the D-S distance is similar to D-D distance (dominated by ~20 other non-zero distances)
+  - *Cosine distances* worked better to highlight cases where there is overlap
+
+Small-test: 3 papers in sketch, 3 papers in diabetes
+Pairwise distances:
+[ 0.82039401  0.84788688  1.          1.          1.          0.76597886
+  1.          0.98668096  1.          1.          1.          1.
+  0.83782663  0.8497598   0.80494086]
+CLUSTER 1
+  diabetes3.pdf
+  diabetes5.pdf
+  diabetes2.pdf
+
+CLUSTER 2
+  Thorne07MotionDoodles.pdf
+  Davis05KSketch.pdf
+  p51-cheema.pdf
+
+
+Still get everything in separate clusters for the larger set of papers, even though we have numClusters set to 2.

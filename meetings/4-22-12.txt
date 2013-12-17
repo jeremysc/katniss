@@ -1,0 +1,20 @@
+Who are our target customers?
+- Shared file spaces
+
+Leyla:
+- Papers organized by topic
+- Easy to search, intuitive labels
+- Presentations and word documents (reports)
+
+Big question:
+If the central problem is accessing your files,
+and you can do that effectively with a high quality search feature
+then how important is:
+- where your files are physically
+- being able to decide which files are related to each other
+
+Seems like people who are fairly proficient with computers still care about how things are physically organized
+They might not organize themselves, but search isn't good enough
+
+For now, take the problem of a folder, shared or not, that is a mess.
+Can we help someone organize this folder by suggesting clusters of related files?
